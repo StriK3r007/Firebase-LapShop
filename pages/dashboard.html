@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNova - User Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar for a nicer look on desktop */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-800">
+                        Welcome, <span class="text-indigo-600">Alex!</span>
+                    </span>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="relative">
+                        <button id="profile-menu-button" 
+                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-indigo-500 transition duration-150" 
+                                aria-expanded="false" 
+                                aria-haspopup="true">
+                            <span class="sr-only">Open user menu</span>
+                            <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold shadow-md">
+                                AP
+                            </div>
+                        </button>
+
+                        <div id="profile-menu" 
+                             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" 
+                             role="menu" aria-orientation="vertical" aria-labelledby="profile-menu-button">
+                            
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                <span class="inline-block w-4 mr-2">⚙️</span> Settings
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                <span class="inline-block w-4 mr-2">🛒</span> My Orders
+                            </a>
+                            <a href="signin.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50" role="menuitem">
+                                <span class="inline-block w-4 mr-2">👋</span> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Your Dashboard Overview</h2>
+        
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            
+            <div class="bg-white overflow-hidden shadow-xl rounded-lg transform transition duration-300 hover:scale-[1.02]">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-indigo-100 rounded-full p-3">
+                            <svg class="h-6 w-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Total Orders</dt>
+                                <dd class="flex items-baseline">
+                                    <div class="text-2xl font-semibold text-gray-900">12</div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white overflow-hidden shadow-xl rounded-lg transform transition duration-300 hover:scale-[1.02]">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                            <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.485 0-4.5 2.015-4.5 4.5S9.515 17 12 17s4.5-2.015 4.5-4.5S14.485 8 12 8zM12 21a9 9 0 100-18 9 9 0 000 18z"></path></svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Wallet Balance</dt>
+                                <dd class="flex items-baseline">
+                                    <div class="text-2xl font-semibold text-gray-900">$450.00</div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="bg-white overflow-hidden shadow-xl rounded-lg transform transition duration-300 hover:scale-[1.02]">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-yellow-100 rounded-full p-3">
+                            <svg class="h-6 w-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m9.686 4H21M11 15v2m1-2a9 9 0 11-1 4m-4.636-2.5l-2.828-2.828a1 1 0 011.414-1.414L10 14.586l4.243-4.243a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0z"></path></svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Pending Reviews</dt>
+                                <dd class="flex items-baseline">
+                                    <div class="text-2xl font-semibold text-gray-900">3</div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="bg-white overflow-hidden shadow-xl rounded-lg transform transition duration-300 hover:scale-[1.02]">
+                <div class="p-5">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-pink-100 rounded-full p-3">
+                            <svg class="h-6 w-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <dl>
+                                <dt class="text-sm font-medium text-gray-500 truncate">Wishlist Items</dt>
+                                <dd class="flex items-baseline">
+                                    <div class="text-2xl font-semibold text-gray-900">25</div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Recent Orders</h3>
+            
+            <div class="bg-white shadow-xl rounded-lg p-6">
+                 <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
+                    <div>
+                        <p class="text-lg font-medium text-gray-800">Premium Wireless Headphones</p>
+                        <p class="text-sm text-gray-500">Order #SN-20231020-001</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-lg font-semibold text-green-600">$199.99</span>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            Delivered
+                        </span>
+                    </div>
+                </div>
+                 <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0">
+                    <div>
+                        <p class="text-lg font-medium text-gray-800">Luxury Leather Wallet</p>
+                        <p class="text-sm text-gray-500">Order #SN-20231025-002</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-lg font-semibold text-yellow-600">$59.00</span>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                            Shipped
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <script>
+        document.getElementById('profile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('profile-menu');
+            var isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', function(e) {
+            var menu = document.getElementById('profile-menu');
+            var button = document.getElementById('profile-menu-button');
+            if (!button.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+    
+</body>
+</html>

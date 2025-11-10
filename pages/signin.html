@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LapShop - Sign In</title>
+    <link rel="stylesheet" href="../styles/output.css">
+</head>
+
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+
+    <div
+        class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 space-y-6 transform transition duration-500 hover:shadow-3xl">
+        <div class="text-center">
+            <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+                Welcome Back!
+            </h2>
+            <p class="mt-2 text-sm text-gray-600">
+                Sign in to continue your shopping journey.
+            </p>
+        </div>
+
+        <form class="space-y-5" id="form">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                <div class="mt-1">
+                    <input id="email" name="email" type="email" autocomplete="email" required
+                        class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150"
+                        placeholder="you@example.com">
+                </div>
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <div class="mt-1">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                        class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150"
+                        placeholder="••••••••">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="text-sm">
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        Forgot your password?
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 transform hover:scale-[1.01] cursor-pointer">
+                    Sign In
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center text-sm">
+            <p class="text-gray-600">
+                New to LapShop?
+                <a href="signup.html" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    Create an account
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script type="module" src="../scripts/signin.js"></script>
+</body>
+
+</html>

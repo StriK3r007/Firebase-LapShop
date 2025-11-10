@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNova - Seller Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hide all tabs initially */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        /* Custom scrollbar for a nicer look on desktop */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+
+    <nav class="bg-indigo-600 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold text-gray-800">
+                        Seller Console: <span class="text-indigo-100">VendorCo</span>
+                    </span>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="relative">
+                        <button id="seller-menu-button" 
+                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-indigo-500 transition duration-150" 
+                                aria-expanded="false" 
+                                aria-haspopup="true">
+                            <span class="sr-only">Open seller menu</span>
+                            <div class="h-10 w-10 rounded-full bg-red-500 flex items-center justify-center text-white font-semibold shadow-md">
+                                VC
+                            </div>
+                        </button>
+
+                        <div id="seller-menu" 
+                             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" 
+                             role="menu" aria-orientation="vertical" aria-labelledby="seller-menu-button">
+                            
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                <span class="inline-block w-4 mr-2">⚙️</span> Settings
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                <span class="inline-block w-4 mr-2">💰</span> Sales Reports
+                            </a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50" role="menuitem">
+                                <span class="inline-block w-4 mr-2">👋</span> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Product Management</h2>
+        
+        <div class="border-b border-gray-200">
+            <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                <button type="button" data-tab="view" class="tab-button active inline-flex items-center px-1 py-4 border-b-2 font-medium text-sm transition duration-150 border-indigo-500 text-indigo-600 focus:outline-none">
+                    <span class="text-xl mr-2">📊</span> View & Update
+                </button>
+                <button type="button" data-tab="add" class="tab-button inline-flex items-center px-1 py-4 border-b-2 font-medium text-sm transition duration-150 border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 focus:outline-none">
+                    <span class="text-xl mr-2">➕</span> Add New Product
+                </button>
+            </nav>
+        </div>
+
+        <div id="view" class="tab-content active mt-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Your Listed Products (4)</h3>
+            <div class="bg-white shadow-xl rounded-lg overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premium Mechanical Keyboard</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$120.00</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-semibold">In Stock (55)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                                <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
+                                <button class="text-red-600 hover:text-red-900">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bluetooth Noise Cancelling Earbuds</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$75.50</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600 font-semibold">Low Stock (5)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                                <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
+                                <button class="text-red-600 hover:text-red-900">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="add" class="tab-content mt-6">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Add a New Product Listing</h3>
+            <div class="bg-white shadow-xl rounded-lg p-6 max-w-2xl">
+                <form class="space-y-6">
+                    <div>
+                        <label for="product-name" class="block text-sm font-medium text-gray-700">Product Name</label>
+                        <input type="text" id="product-name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="price" class="block text-sm font-medium text-gray-700">Price ($)</label>
+                            <input type="number" step="0.01" id="price" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="stock" class="block text-sm font-medium text-gray-700">Stock Quantity</label>
+                            <input type="number" id="stock" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea id="description" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="image" class="block text-sm font-medium text-gray-700">Product Image (Upload)</label>
+                        <input type="file" id="image" class="mt-2 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                    </div>
+
+                    <button type="submit" class="w-full sm:w-auto flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150">
+                        List Product
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Tab Switching Logic ---
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
+
+                    // Deactivate all
+                    tabs.forEach(t => {
+                        t.classList.remove('active', 'border-indigo-500', 'text-indigo-600');
+                        t.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Activate selected
+                    tab.classList.add('active', 'border-indigo-500', 'text-indigo-600');
+                    tab.classList.remove('border-transparent', 'text-gray-500');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+            
+            // --- Dropdown Toggle Logic ---
+            const menuButton = document.getElementById('seller-menu-button');
+            const menu = document.getElementById('seller-menu');
+
+            menuButton.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                this.setAttribute('aria-expanded', !isExpanded);
+                menu.classList.toggle('hidden');
+            });
+            
+            // Close the dropdown if the user clicks outside of it
+            window.addEventListener('click', function(e) {
+                if (!menuButton.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.add('hidden');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
