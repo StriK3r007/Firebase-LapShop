@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopNova - User Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/output.css">
     <style>
         /* Custom scrollbar for a nicer look on desktop */
         ::-webkit-scrollbar { width: 8px; }
@@ -20,7 +20,7 @@
                 
                 <div class="flex-shrink-0">
                     <span class="text-xl font-bold text-gray-800">
-                        Welcome, <span class="text-indigo-600">Alex!</span>
+                        Welcome, <span class="text-indigo-600" id="user-name"></span>
                     </span>
                 </div>
 
@@ -31,9 +31,7 @@
                                 aria-expanded="false" 
                                 aria-haspopup="true">
                             <span class="sr-only">Open user menu</span>
-                            <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold shadow-md">
-                                AP
-                            </div>
+                            <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold shadow-md cursor-pointer" id="user-name-initials"></div>
                         </button>
 
                         <div id="profile-menu" 
@@ -46,9 +44,10 @@
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
                                 <span class="inline-block w-4 mr-2">🛒</span> My Orders
                             </a>
-                            <a href="signin.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50" role="menuitem">
+                            <button class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 cursor-pointer" id="logout-btn" role="menuitem">
                                 <span class="inline-block w-4 mr-2">👋</span> Logout
-                            </a>
+                            </button>
+                            
                         </div>
                     </div>
                 </div>
@@ -186,5 +185,6 @@
         });
     </script>
     
+    <script type="module" src="../scripts/userDashboard.js"></script>
 </body>
 </html>

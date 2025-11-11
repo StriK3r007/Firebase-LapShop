@@ -35,6 +35,16 @@ form.addEventListener("submit", (event) => {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("User signed in:", user);
+
+            // const userID = localStorage.getItem(userData); // for single variable
+            // localStorage.clear(); // clearing all local storage
+            // localStorage.removeItem('username'); // removing specific item
+
+            // let userData = localStorage.getItem('userData');
+            // if (userData) {
+            //     userData = JSON.parse(userData);
+            //     // const signedInUserId = userData.uid
+            // }
             window.location = "../pages/dashboard.html"
         })
         .catch((error) => {
