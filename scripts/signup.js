@@ -64,6 +64,7 @@ form.addEventListener("submit", (event) => {
                     uid: user.uid,
                     fullName: fullName.value.trim(),
                     email: email.value.trim(),
+                    profile: "",
                     time: Timestamp.fromDate(new Date())
                 }
 

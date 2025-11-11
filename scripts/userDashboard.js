@@ -21,10 +21,17 @@ onAuthStateChanged(auth, async (user) => {
         const userInfo = await getDataFromDB(uid, "users");
         
         const userName =  userInfo[0].fullName
-        const userNameInitials = userName.split(" ").slice(0, 2).map(word => word[0]).join('')
+        if (userInfo[0].profile == '') {
+            const userNameInitials = userName.split(" ").slice(0, 2).map(word => word[0]).join('')
+            fullNameInitials.textContent = userNameInitials
+        } else {
+            const profileImage = document.createElement("img")
+            profileImage.classList.add("rounded-full", "h-10", "w-10", "object-cover")
+            profileImage.src = userInfo[0].profile
+            fullNameInitials.appendChild(profileImage)
+        }
 
         fullName.textContent = userName + "!"
-        fullNameInitials.textContent = userNameInitials
 
     } else {
         window.location = "../pages/signin.html"
