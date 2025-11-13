@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopNova - Admin Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>LapShop - Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/output.css">
     <style>
         /* Define the main layout: Sidebar + Content */
         .admin-layout {
@@ -34,12 +34,12 @@
         <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
             <!-- Logo/Title -->
             <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-purple-700">
-                ShopNova <span class="text-sm font-light text-gray-500 ml-1">Admin Panel</span>
+                LapShop <span class="text-sm font-light text-gray-500 ml-1">Admin Panel</span>
             </h1>
             
             <!-- Admin Profile Dropdown -->
             <div class="flex items-center">
-                <span class="text-sm text-gray-600 mr-4 hidden md:inline">Welcome, Super User!</span>
+                <span class="text-sm text-gray-600 mr-4 hidden md:inline">Welcome, <span class="font-semibold" id="user-name">Super User!</span></span>
                 <div class="relative">
                     <button id="admin-menu-button" 
                             class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-purple-500 transition duration-150" 
@@ -47,7 +47,7 @@
                             aria-haspopup="true">
                         <span class="sr-only">Open admin menu</span>
                         <!-- Admin Profile Pic (Avatar placeholder) -->
-                        <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-semibold shadow-md">
+                        <div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-semibold shadow-md" id="user-name-initials">
                             SU
                         </div>
                     </button>
@@ -243,6 +243,6 @@
             }
         });
     </script>
-    
+    <script type="module" src=""></script>
 </body>
 </html>

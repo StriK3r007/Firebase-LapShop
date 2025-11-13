@@ -16,7 +16,7 @@ const confirmPasswordError = document.getElementById("confirm-password-error");
 const statusError = document.getElementById("status-error");
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const name = userName.value.trim()
     const email = userEmail.value.trim()
@@ -28,6 +28,7 @@ form.addEventListener("submit", (event) => {
     emailError.textContent = "";
     passwordError.textContent = "";
     confirmPasswordError.textContent = "";
+    statusError.textContent = "";
 
     let formValid = true;
 
@@ -71,6 +72,7 @@ form.addEventListener("submit", (event) => {
                     fullName: name,
                     email: email,
                     profile: "",
+                    role: "admin",
                     createdAt: Timestamp.fromDate(new Date()),
                     updatedAt: Timestamp.fromDate(new Date())
                 }

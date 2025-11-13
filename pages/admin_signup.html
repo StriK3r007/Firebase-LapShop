@@ -27,7 +27,7 @@
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
                 <div class="mt-1">
-                    <input id="name" name="name" type="text" autocomplete="name"
+                    <input id="name" name="name" type="text" autocomplete="name" required
                         class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition duration-150"
                         placeholder="Admin Name">
                 </div>
@@ -38,7 +38,7 @@
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
                 <div class="mt-1">
-                    <input id="email" name="email" type="email" autocomplete="email"
+                    <input id="email" name="email" type="email" autocomplete="email" required
                         class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition duration-150"
                         placeholder="admin@shopnova.com">
                 </div>
@@ -49,7 +49,7 @@
             <div>
                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                 <div class="mt-1">
-                    <input id="password" name="password" type="password" autocomplete="new-password"
+                    <input id="password" name="password" type="password" autocomplete="new-password" required
                         class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition duration-150"
                         placeholder="••••••••">
                 </div>
@@ -60,7 +60,7 @@
             <div>
                 <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
                 <div class="mt-1">
-                    <input id="confirm-password" name="confirm-password" type="password"
+                    <input id="confirm-password" name="confirm-password" type="password" required
                         class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition duration-150"
                         placeholder="••••••••">
                 </div>
@@ -73,6 +73,7 @@
                     class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-lg font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300 transform hover:scale-[1.01] cursor-pointer">
                     Create Admin Account
                 </button>
+                <div id="status-error" class="text-red-600 mt-1"></div>
             </div>
         </form>
 
@@ -86,5 +87,7 @@
         </div>
     </div>
 
+    <!-- scripts -->
+    <script type="module" src="../scripts/adminsignup.js"></script>
 </body>
 </html>
