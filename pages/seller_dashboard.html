@@ -96,7 +96,7 @@
         </div>
 
         <div id="view" class="tab-content active mt-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Your Listed Products (4)</h3>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Your Listed Products (<span id="listed-products-count"></span>)</h3>
             <div class="bg-white shadow-xl rounded-lg overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
@@ -111,8 +111,8 @@
                                 Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        <tr>
+                    <tbody class="bg-white divide-y divide-gray-200" id="product-render-table" >
+                        <!-- <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Premium Mechanical
                                 Keyboard</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$120.00</td>
@@ -122,18 +122,7 @@
                                 <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
                                 <button class="text-red-600 hover:text-red-900">Delete</button>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bluetooth Noise
-                                Cancelling Earbuds</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$75.50</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600 font-semibold">Low Stock (5)
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
-                                <button class="text-indigo-600 hover:text-indigo-900">Edit</button>
-                                <button class="text-red-600 hover:text-red-900">Delete</button>
-                            </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -238,6 +227,7 @@
         });
     </script>
     <script type="module" src="../scripts/sellerdashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
