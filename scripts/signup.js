@@ -71,6 +71,7 @@ form.addEventListener("submit", (event) => {
                     fullName: name,
                     email: email,
                     profile: "",
+                    role: "customer",
                     createdAt: Timestamp.fromDate(new Date()),
                     updatedAt: Timestamp.fromDate(new Date())
                 }

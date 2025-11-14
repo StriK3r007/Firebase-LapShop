@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNova - Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .product-tab-content { display: none; }
+        .product-tab-content.active { display: block; }
+        
+        /* Custom styles for the active tab button */
+        .tab-button.active {
+            color: #4f46e5; /* indigo-600 */
+            border-bottom-color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+
+    <!-- Header / Navbar (Simplified for this file) -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">
+                ShopNova
+            </h1>
+            <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">
+                &larr; Back to Shop
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Product Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Product Card Container -->
+        <div class="bg-white rounded-xl shadow-2xl overflow-hidden p-6 lg:p-10">
+
+            <div class="lg:grid lg:grid-cols-2 lg:gap-10">
+                
+                <!-- 1. Image Gallery Area -->
+                <div class="mb-8 lg:mb-0">
+                    <!-- Main Image Placeholder -->
+                    <div class="aspect-square w-full bg-gray-200 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                        <img id="main-product-image" 
+                             src="https://placehold.co/600x600/6366f1/ffffff?text=Modern+Laptop" 
+                             alt="Modern Laptop Main Image" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Thumbnail Gallery -->
+                    <div class="mt-4 flex space-x-3 overflow-x-auto p-1">
+                        <div class="w-20 h-20 bg-gray-100 rounded-lg shadow-sm cursor-pointer hover:ring-2 ring-indigo-500 transition duration-150 flex items-center justify-center text-sm text-gray-500">
+                            View 1
+                        </div>
+                        <div class="w-20 h-20 bg-gray-100 rounded-lg shadow-sm cursor-pointer hover:ring-2 ring-indigo-500 transition duration-150 flex items-center justify-center text-sm text-gray-500">
+                            View 2
+                        </div>
+                        <div class="w-20 h-20 bg-gray-100 rounded-lg shadow-sm cursor-pointer hover:ring-2 ring-indigo-500 transition duration-150 flex items-center justify-center text-sm text-gray-500">
+                            View 3
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Product Details and Purchase Options Area -->
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-2">
+                        Ultra-Slim Pro 14" Laptop
+                    </h2>
+                    <p class="text-sm font-medium text-indigo-600 mb-6">
+                        Sold by: **ElectroTech Vendor**
+                    </p>
+
+                    <!-- Price and Rating -->
+                    <div class="flex items-end justify-between border-b pb-4 mb-6">
+                        <p class="text-4xl font-bold text-red-600">
+                            $1,499.00
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <span class="text-xl">★★★★☆</span> 
+                            <span class="ml-2 text-sm text-gray-500">(24 Reviews)</span>
+                        </div>
+                    </div>
+
+                    <!-- Short Description -->
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Experience unparalleled performance and portability with the new Ultra-Slim Pro. Featuring a cutting-edge M3 processor, stunning Retina display, and 18 hours of battery life, it's designed for professionals who demand the best. Available in Space Gray and Midnight Blue.
+                    </p>
+
+                    <!-- Configuration Options -->
+                    <div class="space-y-4 mb-8">
+                        <div>
+                            <span class="block text-sm font-medium text-gray-700 mb-2">Color:</span>
+                            <div class="flex space-x-3">
+                                <button class="h-8 w-8 rounded-full border-2 border-indigo-600 bg-gray-800 focus:outline-none transition duration-150" title="Space Gray"></button>
+                                <button class="h-8 w-8 rounded-full border-2 border-gray-300 bg-blue-900 hover:border-indigo-600 focus:outline-none transition duration-150" title="Midnight Blue"></button>
+                            </div>
+                        </div>
+
+                        <!-- Quantity Selector -->
+                        <div>
+                            <span class="block text-sm font-medium text-gray-700 mb-2">Quantity:</span>
+                            <div class="flex items-center space-x-3">
+                                <button id="decrement-btn" class="p-2 bg-gray-100 rounded-md hover:bg-gray-200 transition duration-150 border">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+                                </button>
+                                <input id="quantity-input" type="number" value="1" min="1" max="10" 
+                                       class="w-16 text-center border border-gray-300 rounded-md py-2 text-lg font-semibold focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                                <button id="increment-btn" class="p-2 bg-gray-100 rounded-md hover:bg-gray-200 transition duration-150 border">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-4">
+                        <button class="w-full flex items-center justify-center py-3 px-6 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition duration-300 transform hover:scale-[1.01] focus:ring-4 focus:ring-indigo-300">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            Add to Cart
+                        </button>
+                        <button class="w-full py-3 px-6 border border-indigo-600 rounded-xl shadow-md text-lg font-bold text-indigo-600 bg-white hover:bg-indigo-50 transition duration-300 focus:ring-2 focus:ring-indigo-300">
+                            Buy Now
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Separator -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+
+                <!-- Tabs Navigation -->
+                <nav class="flex space-x-8 border-b border-gray-200 mb-6">
+                    <button data-tab="description" class="tab-button active pb-3 text-base font-medium text-gray-700 border-b-2 border-indigo-600 transition duration-150 hover:text-indigo-600 focus:outline-none">
+                        Description
+                    </button>
+                    <button data-tab="specs" class="tab-button pb-3 text-base font-medium text-gray-700 border-b-2 border-transparent transition duration-150 hover:text-indigo-600 focus:outline-none">
+                        Specifications
+                    </button>
+                    <button data-tab="reviews" class="tab-button pb-3 text-base font-medium text-gray-700 border-b-2 border-transparent transition duration-150 hover:text-indigo-600 focus:outline-none">
+                        Customer Reviews (24)
+                    </button>
+                </nav>
+
+                <!-- Tabs Content -->
+                <div id="description" class="product-tab-content active text-gray-700 space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-900">The Power of Tomorrow, Today.</h3>
+                    <p>The Ultra-Slim Pro is meticulously engineered for peak efficiency and design elegance. Its unibody aluminum chassis, milled with diamond-cut precision, ensures both durability and a featherlight feel. Whether you are rendering 4K video, compiling massive codebases, or multitasking with dozens of tabs, the new M3 chip handles it all with silent, thermal efficiency.</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4">
+                        <li>14-inch Liquid Retina XDR Display with ProMotion technology.</li>
+                        <li>8-Core M3 Pro Chip with 16-Core GPU.</li>
+                        <li>Up to 1TB Ultra-Fast SSD Storage.</li>
+                        <li>MagSafe 3 and Thunderbolt 4 ports.</li>
+                    </ul>
+                </div>
+
+                <div id="specs" class="product-tab-content text-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Detailed Technical Specifications</h3>
+                    <table class="min-w-full divide-y divide-gray-200 bg-white rounded-lg shadow-sm">
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-medium text-gray-600 w-1/3">Processor</td><td class="p-3">M3 Pro (8 Cores)</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-medium text-gray-600 w-1/3">RAM</td><td class="p-3">16 GB Unified Memory</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-medium text-gray-600 w-1/3">Storage</td><td class="p-3">512 GB SSD</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-medium text-gray-600 w-1/3">Display</td><td class="p-3">14.2" Liquid Retina XDR (3024x1964)</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-medium text-gray-600 w-1/3">Weight</td><td class="p-3">3.5 lbs (1.6 kg)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="reviews" class="product-tab-content text-gray-700 space-y-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">What Customers Are Saying</h3>
+                    
+                    <!-- Review 1 -->
+                    <div class="border p-4 rounded-lg bg-gray-50">
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-500 text-lg">★★★★★</span>
+                            <span class="ml-3 font-semibold text-gray-900">Amazing Performance!</span>
+                        </div>
+                        <p class="text-sm text-gray-600">— Sarah J., Verified Purchase (2 days ago)</p>
+                        <p class="mt-2">"I upgraded from an older model, and the difference is night and day. The screen is gorgeous, and it handles heavy video editing tasks without even heating up. Worth every penny!"</p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="border p-4 rounded-lg bg-gray-50">
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-500 text-lg">★★★★☆</span>
+                            <span class="ml-3 font-semibold text-gray-900">Great, but pricey.</span>
+                        </div>
+                        <p class="text-sm text-gray-600">— Mark R., Verified Purchase (1 week ago)</p>
+                        <p class="mt-2">"It's a fantastic machine, zero complaints about the build quality or speed. The only reason for 4 stars is the high cost compared to competitors, but the ecosystem integration makes up for it."</p>
+                    </div>
+                    
+                    <button class="mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition duration-150">
+                        View All 24 Reviews &rarr;
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+    
+    <!-- JavaScript for Quantity Control and Tabs -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Quantity Control Logic ---
+            const quantityInput = document.getElementById('quantity-input');
+            const incrementBtn = document.getElementById('increment-btn');
+            const decrementBtn = document.getElementById('decrement-btn');
+            
+            const MAX_QUANTITY = 10;
+            const MIN_QUANTITY = 1;
+
+            function updateQuantity(delta) {
+                let current = parseInt(quantityInput.value) || MIN_QUANTITY;
+                let newValue = current + delta;
+                
+                if (newValue < MIN_QUANTITY) newValue = MIN_QUANTITY;
+                if (newValue > MAX_QUANTITY) newValue = MAX_QUANTITY;
+                
+                quantityInput.value = newValue;
+            }
+
+            incrementBtn.addEventListener('click', () => updateQuantity(1));
+            decrementBtn.addEventListener('click', () => updateQuantity(-1));
+            
+            quantityInput.addEventListener('change', function() {
+                updateQuantity(0); // This forces validation on manual input
+            });
+
+            // --- Tab Switching Logic ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.product-tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-tab');
+
+                    // Deactivate all buttons and content
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.remove('border-indigo-600');
+                        btn.classList.add('border-transparent');
+                    });
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Activate the clicked button and content
+                    button.classList.add('active', 'border-indigo-600');
+                    button.classList.remove('border-transparent');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

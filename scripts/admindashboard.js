@@ -13,8 +13,14 @@ const logoutBtn = document.getElementById("logout-btn")
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const uid = user.uid;
-
         const userInfo = await getDataFromDB(uid, "users");
+
+        const role = userInfo[0].role;
+        if(role !== 'admin') {
+            window.location = "../pages/signin.html";
+            return
+        }
+
 
         const name = userInfo[0].fullName
         userName.textContent = `${name}!`

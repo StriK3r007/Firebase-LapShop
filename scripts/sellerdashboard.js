@@ -32,8 +32,14 @@ const productRenderTable = document.getElementById("product-render-table")
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const uid = user.uid;
-
         const userInfo = await getDataFromDB(uid, "users");
+
+        const role = userInfo[0].role
+
+        if (role !== 'seller') {
+            window.location = "../pages/signin.html"
+            return
+        }
 
         const compName = userInfo[0].companyName
         companyName.textContent = compName
@@ -46,10 +52,8 @@ onAuthStateChanged(auth, async (user) => {
             profileImage.src = userInfo[0].profile
             companyNameInitials.appendChild(profileImage)
         }
-
         addProduct(uid)
         renderProducts(uid)
-
     } else {
         window.location = "../pages/signin.html"
     }
@@ -170,7 +174,7 @@ const renderProducts = async (uid) => {
                 </td>
             </tr>
         `;
-        if(stockVal <= 10) {
+        if (stockVal <= 10) {
             const stockTd = document.querySelectorAll(`#stock-td-${product.docid}`)
             if (stockTd) {
                 stockTd[0].classList.toggle("text-red-600")
@@ -213,13 +217,13 @@ const attachEventListeners = () => {
                     const productStock = document.getElementById('productStock').value.trim();
                     const productDescription = document.getElementById('productDescription').value.trim();
 
-                    if (!productName || !productPrice || !productStock ||! productDescription) {
+                    if (!productName || !productPrice || !productStock || !productDescription) {
                         Swal.showValidationMessage("All fields are required!");
                         return false;
                     }
                     return { productName, productPrice, productStock, productDescription };
                 }
-            }).then( async(result) => {
+            }).then(async (result) => {
                 if (result.isConfirmed) {
                     const { productName, productPrice, productStock, productDescription } = result.value;
                     const productData = {

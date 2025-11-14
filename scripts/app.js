@@ -3,12 +3,14 @@ import {
     onAuthStateChanged,
     signOut,
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
-import { auth} from "./firebaseconfig.js";
+import { collection, addDoc, Timestamp, doc, deleteDoc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+import { auth, db } from "./firebaseconfig.js";
 
 const allProducts = document.getElementById("all-products")
 const userName = document.getElementById("user-name")
 const userNameInitials = document.getElementById("user-name-initials")
 const logoutBtn = document.getElementById("logout-btn")
+const profileBtn = document.getElementById("profile-btn")
 const statusLoggedIn = document.getElementById("status-logged-in")
 const statusLoggedOut = document.getElementById("status-logged-out")
 const viewAllProducts = document.getElementById("view-all-products")
@@ -16,7 +18,6 @@ const viewAllProducts = document.getElementById("view-all-products")
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const uid = user.uid;
-        console.log(user)
 
         const userInfo = await getDataFromDB(uid, "users");
 
@@ -50,17 +51,17 @@ const renderProducts = async () => {
         const description = item.description
         const image = item.image
         allProducts.innerHTML +=
-        `
+            `
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:scale-[1.02]">
                         <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-500">
-                            <img src="${image}" alt="${name}">
+                            <img src="${image}" alt="${name}" class="object-cover">
                         </div>
                         <div class="p-4 space-y-2 mt-2">
                             <h4 class="text-lg font-bold text-gray-900 truncate">${name}</h4>
                             <p class="text-sm text-gray-500">${description}</p>
                             <div class="flex justify-between items-center pt-2">
                             <span class="text-xl font-extrabold text-indigo-600">$${price}</span>
-                        <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full text-sm transition duration-150" data-id="${productId}">
+                        <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full text-sm transition duration-150 buy-now-btn" data-id="${productId}">
                             Buy Now
                         </button>
                     </div>
@@ -68,7 +69,25 @@ const renderProducts = async () => {
             </div>
         `
     })
-}; renderProducts()
+    attachEventListeners()
+}; renderProducts();
+
+const attachEventListeners = () => {
+    const butNowBtn = document.querySelectorAll(".buy-now-btn")
+    butNowBtn.forEach(button => {
+        button.addEventListener("click", async () => {
+            const productId = button.dataset.id;
+
+            const products = await getDataFromDB(null, "products")
+            const filteredProduct = products.filter(product => product.docid === productId) 
+            
+            const selectedProduct = localStorage.setItem("product", JSON.stringify(filteredProduct))
+            console.log("Saved product:", filteredProduct);
+
+            window.location = "../pages/details.html"
+        })
+    })
+}
 
 logoutBtn.addEventListener("click", () => {
     signOut(auth)
@@ -79,3 +98,15 @@ logoutBtn.addEventListener("click", () => {
             console("error occured", error);
         });
 });
+
+profileBtn.addEventListener("click", () => {
+    const role = localStorage.getItem("role")
+
+    if (role === "seller") {
+        window.location = "../pages/seller_dashboard.html"
+    } else if (role === 'admin') {
+        window.location = "../pages/admin_dashboard.html"
+    } else {
+        window.location = "../pages/dashboard.html"
+    }
+})

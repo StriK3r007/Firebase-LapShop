@@ -40,6 +40,8 @@ form.addEventListener("submit", (event) => {
             const userInfo = await getDataFromDB(uid, "users")
             const userRole = userInfo[0].role
 
+            const role = localStorage.setItem("role", userRole)
+
             // const userID = localStorage.getItem(userData); // for single variable
             // localStorage.clear(); // clearing all local storage
             // localStorage.removeItem('username'); // removing specific item

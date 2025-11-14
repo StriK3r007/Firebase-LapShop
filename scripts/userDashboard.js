@@ -15,6 +15,13 @@ onAuthStateChanged(auth, async (user) => {
 
         const userInfo = await getDataFromDB(uid, "users");
         
+        const role =  userInfo[0].role
+        if(role !== 'customer') {
+            window.location = "../pages/signin.html";
+            return
+        }
+
+        
         const userName =  userInfo[0].fullName
         if (userInfo[0].profile == '') {
             const userNameInitials = userName.split(" ").slice(0, 2).map(word => word[0]).join('')
