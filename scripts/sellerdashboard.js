@@ -39,8 +39,7 @@ onAuthStateChanged(auth, async (user) => {
         companyName.textContent = compName
 
         if (userInfo[0].profile == '') {
-            const compNameInitials = compName.split(" ").slice(0, 2).map(word => word[0]).join('')
-            companyNameInitials.textContent = compNameInitials
+            companyNameInitials.textContent = compName.split(" ").slice(0, 2).map(word => word[0]).join('')
         } else {
             const profileImage = document.createElement("img")
             profileImage.classList.add("rounded-full", "h-10", "w-10", "object-cover")

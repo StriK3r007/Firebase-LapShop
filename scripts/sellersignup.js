@@ -74,7 +74,8 @@ form.addEventListener("submit", (event) => {
                     email: email.value.trim(),
                     profile: "",
                     role: "seller",
-                    time: Timestamp.fromDate(new Date())
+                    createdAt: Timestamp.fromDate(new Date()),
+                    updatedAt: Timestamp.fromDate(new Date())
                 }
 
                 const docRef = await addDoc(collection(db, "users"), userData);
