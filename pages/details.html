@@ -26,7 +26,7 @@
             <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">
                 ShopNova
             </h1>
-            <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">
+            <a href="../index.html" class="text-sm font-medium text-gray-700 hover:text-indigo-600">
                 &larr; Back to Shop
             </a>
         </div>
@@ -45,9 +45,9 @@
                     <!-- Main Image Placeholder -->
                     <div class="aspect-square w-full bg-gray-200 rounded-xl overflow-hidden shadow-lg border border-gray-100">
                         <img id="main-product-image" 
-                             src="https://placehold.co/600x600/6366f1/ffffff?text=Modern+Laptop" 
-                             alt="Modern Laptop Main Image" 
-                             class="w-full h-full object-cover">
+                             src="" 
+                             alt="" 
+                             class="w-full h-full object-fill">
                     </div>
                     
                     <!-- Thumbnail Gallery -->
@@ -66,17 +66,15 @@
 
                 <!-- 2. Product Details and Purchase Options Area -->
                 <div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-2">
-                        Ultra-Slim Pro 14" Laptop
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-2" id="main-product-name">
                     </h2>
                     <p class="text-sm font-medium text-indigo-600 mb-6">
-                        Sold by: **ElectroTech Vendor**
+                        Sold by: <span class="font-bold" id="main-product-company-name"></span>
                     </p>
 
                     <!-- Price and Rating -->
                     <div class="flex items-end justify-between border-b pb-4 mb-6">
-                        <p class="text-4xl font-bold text-red-600">
-                            $1,499.00
+                        <p class="text-4xl font-bold text-red-600" id="main-product-price">
                         </p>
                         <div class="flex items-center text-yellow-500">
                             <span class="text-xl">★★★★☆</span> 
@@ -85,8 +83,7 @@
                     </div>
 
                     <!-- Short Description -->
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        Experience unparalleled performance and portability with the new Ultra-Slim Pro. Featuring a cutting-edge M3 processor, stunning Retina display, and 18 hours of battery life, it's designed for professionals who demand the best. Available in Space Gray and Midnight Blue.
+                    <p class="text-gray-700 mb-6 leading-relaxed" id="main-product-description">
                     </p>
 
                     <!-- Configuration Options -->
@@ -257,5 +254,6 @@
         });
     </script>
     
+    <script type="module" src="../scripts/productDetails.js"></script>
 </body>
 </html>

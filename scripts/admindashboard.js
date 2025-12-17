@@ -10,6 +10,11 @@ const userName = document.getElementById("user-name")
 const userNameInitials = document.getElementById("user-name-initials")
 const logoutBtn = document.getElementById("logout-btn")
 
+// counter
+const totalSellersCount = document.getElementById('total-sellers')
+const totalCutomersCount = document.getElementById('total-buyers')
+const totalProductsCount = document.getElementById('total-products-count')
+
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const uid = user.uid;
@@ -38,6 +43,25 @@ onAuthStateChanged(auth, async (user) => {
         window.location = "../pages/signin.html"
     }
 });
+
+const renderCounter = async() => {
+    const products = await getDataFromDB(null, "products");
+    const users = await getDataFromDB(null, "users");
+    console.log(users)
+
+    // protducts counter
+    const totalProducts = products.filter(product => product);
+    totalProductsCount.textContent = totalProducts.length;
+
+    // sellers counter
+    const totalSellers = users.filter(user => user.role === 'seller')
+    totalSellersCount.textContent = totalSellers.length
+
+    // users counter
+    const totalCustomers = users.filter(user => user.role === 'customer')
+    totalCutomersCount.textContent = totalCustomers.length
+}
+renderCounter()
 
 logoutBtn.addEventListener("click", () => {
     signOut(auth)

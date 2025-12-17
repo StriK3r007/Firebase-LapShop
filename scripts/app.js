@@ -82,7 +82,7 @@ const attachEventListeners = () => {
             const filteredProduct = products.filter(product => product.docid === productId) 
             
             const selectedProduct = localStorage.setItem("product", JSON.stringify(filteredProduct))
-            console.log("Saved product:", filteredProduct);
+            console.log("Saved product:", selectedProduct);
 
             window.location = "../pages/details.html"
         })
