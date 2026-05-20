@@ -30,16 +30,18 @@
     <main class="max-w-7xl mx-auto px-4 py-10 grid lg:grid-cols-3 gap-10">
 
         <!-- Cart Items -->
-        <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-8">
+        <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-8" id="cart">
             <h2 class="text-2xl font-bold mb-6">Shopping Cart</h2>
 
             <!-- Item -->
-            <div class="flex items-center border-b pb-6 mb-6">
-                <div class="w-24 h-24 bg-gray-100 rounded-lg"></div>
+            <!-- <div class="flex items-center border-b pb-6 mb-6">
+                <div class="w-24 h-24 bg-gray-100 rounded-lg">
+                    <img src="" alt="" id="main-product-image">
+                </div>
 
                 <div class="ml-6 flex-1">
-                    <h3 class="font-semibold text-lg">Ultra-Slim Pro</h3>
-                    <p class="text-sm text-gray-500">Sold by Apple</p>
+                    <h3 class="font-semibold text-lg" id="main-product-name"></h3>
+                    <p class="text-sm text-gray-500" id="main-product-company-name"></p>
 
                     <div class="flex items-center mt-3 space-x-3">
                         <input type="number" value="1" min="1"
@@ -50,8 +52,8 @@
                     </div>
                 </div>
 
-                <p class="font-bold text-lg text-gray-900">$1,999</p>
-            </div>
+                <p class="font-bold text-lg text-gray-900" id="main-product-price"></p>
+            </div> -->
 
             <!-- Empty State (optional) -->
             <!-- <p class="text-gray-500 text-center py-10">Your cart is empty.</p> -->
@@ -89,5 +91,6 @@
 
     </main>
 
+    <script type="module" src="../scripts/cart.js"></script>
 </body>
 </html>

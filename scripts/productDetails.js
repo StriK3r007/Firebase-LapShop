@@ -1,11 +1,15 @@
 import { getDataFromDB } from "./utils.js";
 
+const cart = []
+
 const renderProductDetail = async() => {
     const mainProductImage = document.getElementById('main-product-image')
     const mainProductName = document.getElementById('main-product-name')
     const mainProductPrice = document.getElementById('main-product-price')
     const mainProductDescription = document.getElementById('main-product-description')
     const mainProductCompanyName = document.getElementById('main-product-company-name')
+    const buyNowButton = document.getElementById('buy-now-button')
+    const addToCartButton = document.getElementById('add-to-cart-button')
 
     // getting item from local storage
     let productData = localStorage.getItem('product')
@@ -22,6 +26,7 @@ const renderProductDetail = async() => {
         const productDescription = filteredProduct[0].description
         const productUser = await getDataFromDB(filteredProduct[0].uid, "users")
         const productCompanyName = productUser[0]?.companyName
+        const docid = filteredProduct[0].docid
 
 
         // 
@@ -32,7 +37,19 @@ const renderProductDetail = async() => {
         mainProductName.textContent = productName;
         mainProductPrice.textContent = `$${productPrice}.00`
         mainProductDescription.textContent = productDescription
-        mainProductCompanyName.textContent = productCompanyName 
+        mainProductCompanyName.textContent = productCompanyName
+
+        addToCartButton.addEventListener('click', () => {
+            if (cart.includes(docid)) {
+                console.log([...cart])
+            } else {
+                cart.push([...cart], filteredProduct[0])
+            }
+    })
     }
+    buyNowButton.addEventListener('click', () => {
+        window.location = '../pages/cart.html'
+    })
+    
 }
 renderProductDetail()
